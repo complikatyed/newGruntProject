@@ -1,11 +1,11 @@
 'use strict';
 
 module.exports = function (grunt) {
+  require('load-grunt-tasks')(grunt);
 
-  grunt.loadNpmTasks('grunt-contrib-copy');
-  grunt.loadNpmTasks('grunt-contrib-jade');
 
   grunt.initConfig({
+    clean: ['public'],
     copy: {
       main: {
         files: [
@@ -21,5 +21,6 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('default', []);
-  grunt.registerTask('build', ['copy', 'jade']);
+  grunt.registerTask('build', ['clean', 
+    'copy', 'jade']);
 };
